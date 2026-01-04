@@ -120,6 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   checkTheme();
   setupScrollEffects();
+  setupIntersectionObserver();
+  
+  // Add page load animation
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+    document.body.style.transition = 'opacity 0.5s ease-in';
+    document.body.style.opacity = '1';
+  }, 100);
 });
 
 // Setup Event Listeners
@@ -268,6 +276,48 @@ function setupScrollEffects() {
     } else {
       topBtn.classList.remove('show');
     }
+    
+    // Animate elements on scroll
+    animateOnScroll();
+  });
+  
+  // Initial animation trigger
+  animateOnScroll();
+}
+
+// Animate elements when they come into view
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.card, .reveal, .fade-in-up');
+  
+  elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const elementVisible = 150;
+    
+    if (elementTop < window.innerHeight - elementVisible) {
+      element.classList.add('active', 'visible');
+    }
+  });
+}
+
+// Intersection Observer for better performance
+function setupIntersectionObserver() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active', 'visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all animatable elements
+  document.querySelectorAll('.card, .reveal, .fade-in-up').forEach(el => {
+    observer.observe(el);
   });
 }
 

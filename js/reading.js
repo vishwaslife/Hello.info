@@ -292,8 +292,81 @@ function formatDate(dateString) {
   });
 }
 
+// Animate reading page elements
+function animateReadingPage() {
+  // Animate sidebar items
+  const keyPoints = document.querySelectorAll('#keyPointsList li');
+  keyPoints.forEach((item, index) => {
+    setTimeout(() => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      item.style.transition = 'all 0.5s ease-out';
+      
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      }, 50);
+    }, index * 100);
+  });
+  
+  // Animate post content paragraphs
+  const paragraphs = document.querySelectorAll('.post-body p, .post-body h2, .post-body h3');
+  paragraphs.forEach((para, index) => {
+    para.style.opacity = '0';
+    para.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+      para.style.transition = 'all 0.6s ease-out';
+      para.style.opacity = '1';
+      para.style.transform = 'translateY(0)';
+    }, 200 + (index * 50));
+  });
+  
+  // Animate navigation buttons
+  const navButtons = document.querySelectorAll('.nav-btn');
+  navButtons.forEach((btn, index) => {
+    setTimeout(() => {
+      btn.style.opacity = '0';
+      btn.style.transform = 'scale(0.8)';
+      btn.style.transition = 'all 0.5s ease-out';
+      
+      setTimeout(() => {
+        btn.style.opacity = '1';
+        btn.style.transform = 'scale(1)';
+      }, 50);
+    }, 800 + (index * 100));
+  });
+  
+  // Animate related posts
+  const relatedCards = document.querySelectorAll('.related-card');
+  relatedCards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px) scale(0.9)';
+      card.style.transition = 'all 0.6s ease-out';
+      
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0) scale(1)';
+      }, 50);
+    }, 1000 + (index * 150));
+  });
+}
+
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  loadPost();
-  setupThemeToggle();
+  // Add page load fade
+  document.body.style.opacity = '0';
+  
+  setTimeout(() => {
+    loadPost();
+    setupThemeToggle();
+    
+    // Trigger animations after content loads
+    setTimeout(() => {
+      animateReadingPage();
+      document.body.style.transition = 'opacity 0.5s ease-in';
+      document.body.style.opacity = '1';
+    }, 100);
+  }, 50);
 });
