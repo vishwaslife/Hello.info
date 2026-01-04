@@ -29,6 +29,23 @@
     <p>Simple blogs in easy language ✨</p>
   </section>
 
+  <!-- YouTube Trending Videos Section -->
+  <section class="youtube-section">
+    <div class="youtube-header">
+      <h2>🔥 YouTube Top 25 Trending Videos</h2>
+      <div class="youtube-controls">
+        <button id="refreshYoutube" class="refresh-btn" title="Refresh Videos">🔄 Refresh</button>
+        <span class="last-updated" id="lastUpdated"></span>
+      </div>
+    </div>
+    <div class="youtube-container" id="youtubeContainer">
+      <div class="loading-state" id="youtubeLoading">
+        <div class="loader"></div>
+        <p>Loading trending videos...</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Category Filters -->
   <div class="filters">
     <button class="filter-btn active" data-category="all">All Posts</button>
@@ -59,5 +76,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/youtube.js"></script>
 </body>
 </html>
