@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello.Info</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div id="progressBar"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <h1>📝 Hello.Info</h1>
+    </div>
+    <div class="nav-search">
+      <input type="text" id="searchInput" placeholder="Search posts...">
+      <button id="themeToggle" title="Toggle Dark Mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Welcome to Hello.Info</h2>
+    <p>Simple blogs in easy language ✨</p>
+  </section>
+
+  <!-- Category Filters -->
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All Posts</button>
+    <button class="filter-btn" data-category="skincare">🧴 Skincare</button>
+    <button class="filter-btn" data-category="health">💊 Health</button>
+    <button class="filter-btn" data-category="student">🎓 Student Life</button>
+    <button class="filter-btn" data-category="career">💼 Career</button>
+    <button class="filter-btn" data-category="tech">💻 Technology</button>
+    <button class="filter-btn" data-category="money">💰 Money</button>
+    <button class="filter-btn" data-category="self-improvement">🧠 Self Improvement</button>
+    <button class="filter-btn" data-category="general">📖 General Knowledge</button>
+  </div>
+
+  <!-- Blog Posts Grid -->
+  <section class="posts" id="postsContainer">
+    <!-- Posts will be dynamically loaded here -->
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="topBtn" title="Back to top">↑</button>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Hello.Info | Made with ❤️</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

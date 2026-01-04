@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Post - Hello.Info</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reading.css">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div id="progressBar"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none; color: inherit;">
+        <h1>📝 Hello.Info</h1>
+      </a>
+    </div>
+    <div class="nav-search">
+      <button id="themeToggle" title="Toggle Dark Mode">🌙</button>
+      <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Reading Container -->
+  <div class="reading-container">
+    <!-- Sidebar - Key Points -->
+    <aside class="reading-sidebar" id="keyPoints">
+      <div class="sidebar-content">
+        <h3>🔑 Key Points</h3>
+        <ul id="keyPointsList"></ul>
+        <div class="reading-meta">
+          <div class="meta-item">
+            <strong>Category:</strong>
+            <span id="postCategory"></span>
+          </div>
+          <div class="meta-item">
+            <strong>Published:</strong>
+            <span id="postDate"></span>
+          </div>
+          <div class="meta-item">
+            <strong>Reading Time:</strong>
+            <span id="readingTime"></span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="reading-content">
+      <article class="post-article">
+        <div class="post-header">
+          <span class="post-category-badge" id="categoryBadge"></span>
+          <h1 id="postTitle"></h1>
+          <div class="post-meta">
+            <span id="postDateMeta"></span>
+            <span>•</span>
+            <span id="readingTimeMeta"></span>
+          </div>
+        </div>
+
+        <div class="post-body" id="postBody">
+          <!-- Content will be loaded here -->
+        </div>
+
+        <!-- Navigation -->
+        <div class="post-navigation">
+          <button id="prevBtn" class="nav-btn">← Previous Post</button>
+          <button id="nextBtn" class="nav-btn">Next Post →</button>
+        </div>
+
+        <!-- Related Posts -->
+        <div class="related-posts" id="relatedPosts">
+          <h3>📚 Related Posts</h3>
+          <div class="related-grid" id="relatedGrid"></div>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="topBtn" title="Back to top">↑</button>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Hello.Info | Made with ❤️</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/reading.js"></script>
+</body>
+</html>
